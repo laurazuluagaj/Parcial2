@@ -24,7 +24,8 @@ int main()
     while(true){
         cout << "1-> Disparos ofensivos que comprometan a defensivo." << endl;
         cout << "2-> Disparos defensivos que comprometan a ofensivo." << endl;
-        cout << "3-> Disparo defensivo que impida ser destruido sin importar ofensivo." << endl;;
+        cout << "3-> Disparo defensivo que impida ser destruido sin importar ofensivo." << endl;
+        cout << "4-> Disparo defensivo que impida ser destruido cuidando ofensivo." << endl;
         cout << "6-> Cambiar distancias y posiciones." << endl;
         cout << "Ingrese una de las opciones del menu: ";
         cin >> opcion;
@@ -69,6 +70,25 @@ int main()
             vel=Disparos.getVelocidades(0);
             tiempo=Disparos.getTiempos(0);
             impacto=Disparos.disparoDefensivo2(vel, angle, tiempo);
+            if(impacto){
+                cout << "Disparo: " << endl;
+                cout << "Impacto con un angulo de " << Disparos.getAngles(0) << endl;
+                cout << "Impacto con velocidad inicial " << Disparos.getVelocidades(0) << endl;
+                cout << "Impacto con posicion x " << Disparos.getPosX(0) << endl;
+                cout << "Impacto con posicion y " << Disparos.getPosY(0) << endl;
+                cout << "Impacto con tiempo t " << Disparos.getTiempos(0) << endl << endl;
+            }
+        }
+            break;
+        case 4:{
+            bool impacto=0;
+            float angle, vel;
+            int tiempo;
+            impacto=Disparos.disparoCertero(1);
+            angle=Disparos.getAngles(0);
+            vel=Disparos.getVelocidades(0);
+            tiempo=Disparos.getTiempos(0);
+            impacto=Disparos.disparoDefensivo3(vel, angle, tiempo);
             if(impacto){
                 cout << "Disparo: " << endl;
                 cout << "Impacto con un angulo de " << Disparos.getAngles(0) << endl;

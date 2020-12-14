@@ -38,6 +38,7 @@ public:
     int getTiempos(int);
     bool disparoDefensivo(int);
     bool disparoDefensivo2(float, float, int);
+    bool disparoDefensivo3(float, float, int);
     ~Disparos();
 };
 
