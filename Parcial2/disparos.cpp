@@ -135,6 +135,48 @@ bool Disparos::disparoDefensivo(int cantidad)
     else return 0;
 }
 
+bool Disparos::disparoDefensivo2(float veldisparo, float angledisparo, int tiempo)
+{
+    bool impacto;
+    float vel, angle, velBala[2], posDisparo[2];
+    angle=0;
+    int t;
+        impacto=0;
+        for(vel=10; vel<=400; vel++){
+            for(; angle<90; angle++){
+                velD[0]=(vel*cos(angle*M_PI/180))*-1;
+                velD[1]=(vel*sin(angle*M_PI/180));
+                velBala[0]=veldisparo*cos(angledisparo*M_PI/180);
+                velBala[1]=veldisparo*sin(angledisparo*M_PI/180);
+                posBala[0]=posD[0];
+                posBala[1]=posD[1];
+                for(t=0;t<=tiempo-2;t++){
+                    posBala[0] = posD[0]+velD[0]*t;
+                    posBala[1] = posD[1] + velD[1]*t - (0.5*g*t*t);
+                    posDisparo[0] = velBala[0]*t;
+                    posDisparo[1] = posO[1] + velBala[1]*t - (0.5*g*t*t);
+                    if(sqrt(pow((posDisparo[0]-posBala[0]),2)+pow((posDisparo[1]-posBala[1]),2))<=radioD){
+                     impacto = 1;
+                     break;
+                    }
+                    if(posBala[1]<0) break;
+                }
+                if(impacto){
+                    angles[0]=angle;
+                    velocidades[0]=vel;
+                    posX[0]=posBala[0];
+                    posY[0]=posBala[1];
+                    tiempos[0]=t;
+                    angle++;
+                    break;
+                }
+            }
+            if(impacto) break;
+        }
+    if(impacto) return 1;
+    else return 0;
+}
+
 Disparos::~Disparos()
 {
     delete posO;
