@@ -153,9 +153,9 @@ bool Disparos::disparoDefensivo2(float veldisparo, float angledisparo, int tiemp
                 for(t=0;t<=tiempo-2;t++){
                     posBala[0] = posD[0]+velD[0]*t;
                     posBala[1] = posD[1] + velD[1]*t - (0.5*g*t*t);
-                    posDisparo[0] = velBala[0]*t;
-                    posDisparo[1] = posO[1] + velBala[1]*t - (0.5*g*t*t);
-                    if(sqrt(pow((posDisparo[0]-posBala[0]),2)+pow((posDisparo[1]-posBala[1]),2))<=radioD){
+                    posDisparo[0] = velBala[0]*(t+2);
+                    posDisparo[1] = posO[1] + velBala[1]*(t+2) - (0.5*g*(t+2)*(t+2));
+                    if((sqrt(pow((posDisparo[0]-posBala[0]),2)+pow((posDisparo[1]-posBala[1]),2))<=radioD)&&(sqrt(pow((posD[0]-posBala[0]),2)+pow((posD[1]-posBala[1]),2))>radioD)){
                      impacto = 1;
                      break;
                     }
