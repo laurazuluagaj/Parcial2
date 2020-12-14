@@ -36,6 +36,7 @@ public:
     float getPosX(int);
     float getPosY(int);
     int getTiempos(int);
+    bool disparoDefensivo(int);
     ~Disparos();
 };
 
