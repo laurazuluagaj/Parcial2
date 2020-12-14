@@ -69,14 +69,16 @@ int main()
             angle=Disparos.getAngles(0);
             vel=Disparos.getVelocidades(0);
             tiempo=Disparos.getTiempos(0);
-            impacto=Disparos.disparoDefensivo2(vel, angle, tiempo);
+            impacto=Disparos.disparoDefensivo2(vel, angle, tiempo, 3);
             if(impacto){
-                cout << "Disparo: " << endl;
-                cout << "Impacto con un angulo de " << Disparos.getAngles(0) << endl;
-                cout << "Impacto con velocidad inicial " << Disparos.getVelocidades(0) << endl;
-                cout << "Impacto con posicion x " << Disparos.getPosX(0) << endl;
-                cout << "Impacto con posicion y " << Disparos.getPosY(0) << endl;
-                cout << "Impacto con tiempo t " << Disparos.getTiempos(0) << endl << endl;
+                for(int i=0; i<3; i++){
+                    cout << "Disparo " << i+1 << ":" << endl;
+                    cout << "Impacto con un angulo de " << Disparos.getAngles(i) << endl;
+                    cout << "Impacto con velocidad inicial " << Disparos.getVelocidades(i) << endl;
+                    cout << "Impacto con posicion x " << Disparos.getPosX(i) << endl;
+                    cout << "Impacto con posicion y " << Disparos.getPosY(i) << endl;
+                    cout << "Impacto con tiempo t " << Disparos.getTiempos(i) << endl << endl;
+                }
             }
         }
             break;
@@ -88,14 +90,16 @@ int main()
             angle=Disparos.getAngles(0);
             vel=Disparos.getVelocidades(0);
             tiempo=Disparos.getTiempos(0);
-            impacto=Disparos.disparoDefensivo3(vel, angle, tiempo);
+            impacto=Disparos.disparoDefensivo3(vel, angle, tiempo, 3);
             if(impacto){
-                cout << "Disparo: " << endl;
-                cout << "Impacto con un angulo de " << Disparos.getAngles(0) << endl;
-                cout << "Impacto con velocidad inicial " << Disparos.getVelocidades(0) << endl;
-                cout << "Impacto con posicion x " << Disparos.getPosX(0) << endl;
-                cout << "Impacto con posicion y " << Disparos.getPosY(0) << endl;
-                cout << "Impacto con tiempo t " << Disparos.getTiempos(0) << endl << endl;
+                for(int i=0; i<3; i++){
+                    cout << "Disparo " << i+1 << ":" << endl;
+                    cout << "Impacto con un angulo de " << Disparos.getAngles(i) << endl;
+                    cout << "Impacto con velocidad inicial " << Disparos.getVelocidades(i) << endl;
+                    cout << "Impacto con posicion x " << Disparos.getPosX(i) << endl;
+                    cout << "Impacto con posicion y " << Disparos.getPosY(i) << endl;
+                    cout << "Impacto con tiempo t " << Disparos.getTiempos(i) << endl << endl;
+                }
             }
         }
             break;

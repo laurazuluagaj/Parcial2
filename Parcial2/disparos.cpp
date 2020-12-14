@@ -135,13 +135,14 @@ bool Disparos::disparoDefensivo(int cantidad)
     else return 0;
 }
 
-bool Disparos::disparoDefensivo2(float veldisparo, float angledisparo, int tiempo)
+bool Disparos::disparoDefensivo2(float veldisparo, float angledisparo, int tiempo, int cant)
 {
     bool impacto;
     float vel, angle, velBala[2], posDisparo[2];
     angle=0;
     int t;
-        impacto=0;
+    impacto=0;
+    for(int i=0; i<cant; i++){
         for(vel=10; vel<=400; vel++){
             for(; angle<90; angle++){
                 velD[0]=(vel*cos(angle*M_PI/180))*-1;
@@ -162,28 +163,30 @@ bool Disparos::disparoDefensivo2(float veldisparo, float angledisparo, int tiemp
                     if(posBala[1]<0) break;
                 }
                 if(impacto){
-                    angles[0]=angle;
-                    velocidades[0]=vel;
-                    posX[0]=posBala[0];
-                    posY[0]=posBala[1];
-                    tiempos[0]=t;
+                    angles[i]=angle;
+                    velocidades[i]=vel;
+                    posX[i]=posBala[0];
+                    posY[i]=posBala[1];
+                    tiempos[i]=t;
                     angle++;
                     break;
                 }
             }
             if(impacto) break;
         }
+    }
     if(impacto) return 1;
     else return 0;
 }
 
-bool Disparos::disparoDefensivo3(float veldisparo, float angledisparo, int tiempo)
+bool Disparos::disparoDefensivo3(float veldisparo, float angledisparo, int tiempo, int cant)
 {
     bool impacto;
     float vel, angle, velBala[2], posDisparo[2];
     angle=0;
     int t;
-        impacto=0;
+    impacto=0;
+    for(int i=0; i<cant; i++){
         for(vel=10; vel<=400; vel++){
             for(; angle<90; angle++){
                 velD[0]=(vel*cos(angle*M_PI/180))*-1;
@@ -204,17 +207,18 @@ bool Disparos::disparoDefensivo3(float veldisparo, float angledisparo, int tiemp
                     if(posBala[1]<0) break;
                 }
                 if(impacto){
-                    angles[0]=angle;
-                    velocidades[0]=vel;
-                    posX[0]=posBala[0];
-                    posY[0]=posBala[1];
-                    tiempos[0]=t;
+                    angles[i]=angle;
+                    velocidades[i]=vel;
+                    posX[i]=posBala[0];
+                    posY[i]=posBala[1];
+                    tiempos[i]=t;
                     angle++;
                     break;
                 }
             }
             if(impacto) break;
         }
+    }
     if(impacto) return 1;
     else return 0;
 }
